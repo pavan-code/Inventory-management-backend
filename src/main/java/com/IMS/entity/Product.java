@@ -16,6 +16,7 @@ public class Product {
 	private String name;
 	private String category;
 	private double price;
+	private int quantity;
 	private String description;
 	private int threshold;
 	private boolean isAvailable;
@@ -72,12 +73,22 @@ public class Product {
 		this.category = dto.getCategory();
 		this.price = dto.getPrice();
 		this.description = dto.getCategory();
+		this.quantity = dto.getQuantity();
 		this.threshold = dto.getThreshold();
 		this.isAvailable = dto.isAvailable();
 	}
+
+
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", description="
-				+ description + ", threshold=" + threshold + ", isAvailable=" + isAvailable + "]";
+		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", quantity="
+				+ quantity + ", description=" + description + ", threshold=" + threshold + ", isAvailable="
+				+ isAvailable + "]";
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}	
 }

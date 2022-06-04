@@ -6,6 +6,7 @@ public class ProductDTO {
 	private String name;
 	private String category;
 	private double price;
+	private int quantity;
 	private String description;
 	private int threshold;
 	private boolean isAvailable;
@@ -52,18 +53,27 @@ public class ProductDTO {
 	public void setAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;
 	}
-	public ProductDTO(String name, String category, double price, String description, int threshold, boolean isAvailable) {
+	public ProductDTO(String name, String category, double price, int quantity, String description, int threshold, boolean isAvailable) {
 		
 		this.name = name;
 		this.category = category;
 		this.price = price;
 		this.description = description;
+		this.quantity = quantity;
 		this.threshold = threshold;
 		this.isAvailable = isAvailable;
 	}
+	
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", category=" + category + ", price=" + price + ", description="
-				+ description + ", threshold=" + threshold + ", isAvailable=" + isAvailable + "]";
+		return "ProductDTO [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", quantity="
+				+ quantity + ", description=" + description + ", threshold=" + threshold + ", isAvailable="
+				+ isAvailable + "]";
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}	
 }
