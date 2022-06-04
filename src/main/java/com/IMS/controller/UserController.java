@@ -1,6 +1,7 @@
 package com.IMS.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import com.IMS.entity.UserResponse;
 import com.IMS.service.UserService;
 
 @RestController
+@CrossOrigin("*")
 public class UserController {
 
 	@Autowired

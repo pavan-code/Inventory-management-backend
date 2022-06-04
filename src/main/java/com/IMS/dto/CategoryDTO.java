@@ -17,8 +17,9 @@ public class CategoryDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public CategoryDTO(String name) {
+	public CategoryDTO(int id, String name) {
 		super();
+		this.id = id;
 		this.name = name;
 	}
 	

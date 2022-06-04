@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.IMS.entity.Category;
 import com.IMS.entity.Product;
+import com.IMS.entity.User;
 import com.IMS.repository.CategoryRepository;
 import com.IMS.repository.ProductRepository;
+import com.IMS.repository.UserRepository;
 
 @Service
 public class AdminService {
@@ -19,6 +21,13 @@ public class AdminService {
 	
 	@Autowired
 	private ProductRepository productRepo;
+	
+	@Autowired
+	private UserRepository userRepo;
+	
+	public List<User> getAllUsers() {
+		return userRepo.findAll();
+	}
 	
 	public Category saveCategory(Category category) {
 		return categoryRepo.save(category);
@@ -32,6 +41,13 @@ public class AdminService {
 			return null;
 	}
 	
+	public Category deleteCategory(int id) {
+		Category cat = getCategory(id);
+		if(cat != null) {
+			categoryRepo.deleteById(id);
+			return cat;
+		} else return null;
+	}
 	public List<Category> allCategories() {
 		return categoryRepo.findAll();
 	}
@@ -59,7 +75,12 @@ public class AdminService {
 	public Product updateProduct(Product product) {
 		return productRepo.save(product);
 	}
-	public void deleteProduct(int id) {
-		productRepo.deleteById(id);
+	public Product deleteProduct(int id) {
+		Product pro = getProduct(id);
+		if(pro != null) {
+			productRepo.deleteById(id);
+			return pro;
+		} else 
+			return null;
 	}
 }

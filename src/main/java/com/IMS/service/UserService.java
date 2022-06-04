@@ -23,6 +23,7 @@ public class UserService {
 		String password = request.getPassword();
 		String role = request.getRole();
 		User user = userRepo.findByEmail(email);
+		System.out.println(email + " " + password + " " + role + " " + user);
 		if (user == null) {
 			return new UserResponse<>(false, 404, "User not found", null, null);
 		} else {
